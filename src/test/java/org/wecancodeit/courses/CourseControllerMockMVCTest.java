@@ -54,7 +54,7 @@ class CourseControllerMockMVCTest {
 	@Test
 	public void shouldGetStatusOfOKWhenNavigatingToCourseOnePage() throws Exception {
 		when(courseRepo.findOneCourse(1L)).thenReturn(courseOne);
-		this.mockMvc.perform(get("/show-single-course?id=1")).andExpect(status().isOk())
+		this.mockMvc.perform(get("/show-courses/1")).andExpect(status().isOk())
 		.andExpect(view().name("course-template"));
 	}
 	
@@ -68,7 +68,7 @@ class CourseControllerMockMVCTest {
 	@Test
 	public void shouldAddSingleCoursesToTheModel() throws Exception {
 		when(courseRepo.findOneCourse(1L)).thenReturn(courseOne); 
-				this.mockMvc.perform(get("/show-single-course?id=1"))
+				this.mockMvc.perform(get("/show-courses/1"))
 				.andExpect(model().attribute("courseModel", is(courseOne)));
 	}
 
@@ -76,7 +76,7 @@ class CourseControllerMockMVCTest {
 	public void shouldReturnNotFoundForBadRequest() throws Exception {
 		Long badId = 5L;
 		when(courseRepo.findOneCourse(badId)).thenReturn(null);
-		this.mockMvc.perform(get("/show-single-course?id=5"))
+		this.mockMvc.perform(get("/show-courses/5"))
 		.andExpect(status().isNotFound());
 	}
 
