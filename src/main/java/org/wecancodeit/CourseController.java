@@ -1,19 +1,21 @@
 package org.wecancodeit;
 
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@RequestMapping("/show-courses")
 @Controller
 public class CourseController {
 
 	@Resource
 	private CourseRepository courseRepo;
 
-	@GetMapping("/show-courses") // matches test  //grabs end point
+	@GetMapping("") // matches test  //grabs end point
 	public String findAllCourses(Model model) {
 
 		model.addAttribute("coursesModel", courseRepo.findAllCourses()); // add attribute here after @Test shouldAddAllCoursesToTheModel -- > grabs the info --> places into the template
@@ -23,7 +25,7 @@ public class CourseController {
 	
 	//new way with Path Variable - better for APIs
 	
-	@GetMapping("/show-courses/{id}")
+	@GetMapping("/{id}")
 	public String findOneCourse(@PathVariable(value = "id") Long id, Model model) throws CourseNotFoundException{
 		
 		if(courseRepo.findOneCourse(id) == null) {
