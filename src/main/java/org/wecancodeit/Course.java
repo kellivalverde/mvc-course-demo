@@ -7,7 +7,7 @@ public class Course {
 	private String name;
 	private String description;
 
-	
+	//what ThymeLeaf is accessing (chops off "get")
 	public Long getId() {
 		return id;
 	}

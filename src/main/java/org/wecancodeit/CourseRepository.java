@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 public class CourseRepository {
 
 	private Map<Long, Course> courseList = new HashMap<>();
-	private Course courseOne = new Course(1L, "course one", "description");
-	private Course courseTwo = new Course(2L, "course two", "description");
+	private Course courseOne = new Course(1L, "course one", "description of course one");
+	private Course courseTwo = new Course(2L, "course two", "description of course two");
 
 	//real database
 	public CourseRepository() {

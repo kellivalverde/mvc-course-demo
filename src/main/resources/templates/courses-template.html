@@ -11,13 +11,14 @@
 	
 	<main>
 		<ul>
-			<li th:each="course: ${coursesModel}"><a th:href="@{/show-single-course(id=${course.id})}" th:text="${course.name}"></a></li>
+            <li th:each="course: ${coursesModel}"><a th:href="@{/show-single-course(id=${course.id})}" 
+                th:text="${course.name}"></a></li>
 		</ul>
 	</main>
 
 	<footer>
-		<small>Copyright South Harmon Institute of Technology 2018</small>
-	</footer>
+        <small>&copy WCCI 2020</small>
+    </footer>
 
 </body>
 </html>
