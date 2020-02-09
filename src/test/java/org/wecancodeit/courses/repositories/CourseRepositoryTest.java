@@ -1,4 +1,4 @@
-package org.wecancodeit;
+package org.wecancodeit.courses.repositories;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.jupiter.api.Assertions.*;
@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Collection;
 import javax.annotation.Resource;
 import org.junit.jupiter.api.Test;
+import org.wecancodeit.courses.models.Course;
+import org.wecancodeit.courses.repositories.CourseRepository;
 
 class CourseRepositoryTest {
 

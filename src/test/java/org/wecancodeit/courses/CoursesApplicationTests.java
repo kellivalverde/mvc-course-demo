@@ -1,4 +1,4 @@
-package org.wecancodeit;
+package org.wecancodeit.courses;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

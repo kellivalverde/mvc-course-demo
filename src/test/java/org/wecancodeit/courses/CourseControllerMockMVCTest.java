@@ -1,4 +1,4 @@
-package org.wecancodeit;
+package org.wecancodeit.courses;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasSize;
@@ -20,6 +20,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.wecancodeit.courses.controllers.CourseController;
+import org.wecancodeit.courses.models.Course;
+import org.wecancodeit.courses.repositories.CourseRepository;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(CourseController.class)

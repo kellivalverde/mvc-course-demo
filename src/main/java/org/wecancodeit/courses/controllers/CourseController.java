@@ -1,4 +1,4 @@
-package org.wecancodeit;
+package org.wecancodeit.courses.controllers;
 
 import javax.annotation.Resource;
 
@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.wecancodeit.courses.exceptions.CourseNotFoundException;
+import org.wecancodeit.courses.repositories.CourseRepository;
 
 @RequestMapping("/show-courses")
 @Controller
@@ -15,16 +17,14 @@ public class CourseController {
 	@Resource
 	private CourseRepository courseRepo;
 
-	@GetMapping("") // matches test  //grabs end point
+	@GetMapping("") 
 	public String findAllCourses(Model model) {
 
-		model.addAttribute("coursesModel", courseRepo.findAllCourses()); // add attribute here after @Test shouldAddAllCoursesToTheModel -- > grabs the info --> places into the template
+		model.addAttribute("coursesModel", courseRepo.findAllCourses()); 
 		return "courses-template"; // html file -- > Spring knows to go to my src/main/resources/templates + template name + .html
 	}
 
-	
 	//new way with Path Variable - better for APIs
-	
 	@GetMapping("/{id}")
 	public String findOneCourse(@PathVariable(value = "id") Long id, Model model) throws CourseNotFoundException{
 		
@@ -35,6 +35,14 @@ public class CourseController {
 		return "course-template";
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
 // Request Parameter style
 //	
 //	@GetMapping("/show-single-course")

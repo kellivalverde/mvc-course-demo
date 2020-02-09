@@ -1,4 +1,4 @@
-package org.wecancodeit;
+package org.wecancodeit.courses.models;
 
 public class Course {
 //POJO - plain old Java object

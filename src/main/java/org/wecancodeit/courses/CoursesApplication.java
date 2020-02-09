@@ -1,4 +1,4 @@
-package org.wecancodeit;
+package org.wecancodeit.courses;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

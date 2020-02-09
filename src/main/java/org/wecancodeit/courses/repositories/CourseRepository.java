@@ -1,10 +1,11 @@
-package org.wecancodeit;
+package org.wecancodeit.courses.repositories;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
+import org.wecancodeit.courses.models.Course;
 
 @Repository
 public class CourseRepository {
