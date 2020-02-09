@@ -1,5 +1,6 @@
 package org.wecancodeit;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.when;
@@ -60,4 +61,30 @@ class CourseControllerMockMVCTest {
 				this.mockMvc.perform(get("/show-courses"))
 				.andExpect(model().attribute("coursesModel", hasSize(2)));
 	}
+
+	@Test
+	public void shouldAddSingleCoursesToTheModel() throws Exception {
+		when(courseRepo.findOneCourse(1L)).thenReturn(courseOne); 
+				this.mockMvc.perform(get("/show-single-course?id=1"))
+				.andExpect(model().attribute("courseModel", is(courseOne)));
+	}
+
+	@Test
+	public void shouldReturnNotFoundForBadRequest() throws Exception {
+		Long badId = 5L;
+		when(courseRepo.findOneCourse(badId)).thenReturn(null);
+		this.mockMvc.perform(get("/show-single-course?id=5"))
+		.andExpect(status().isNotFound());
+	}
+
+
+
+
+
+
+
+
+
+
+
 }

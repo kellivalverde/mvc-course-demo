@@ -20,7 +20,13 @@ public class CourseController {
 	}
 
 	@GetMapping("/show-single-course")
-	public String findOneCourse(@RequestParam Long id, Model model) {
+	public String findOneCourse(@RequestParam Long id, Model model) throws CourseNotFoundException{
+		
+		if(courseRepo.findOneCourse(id) == null) {
+			throw new CourseNotFoundException();
+		}
+		
+		
 		model.addAttribute("courseModel", courseRepo.findOneCourse(id));
 		return "course-template";
 	}
