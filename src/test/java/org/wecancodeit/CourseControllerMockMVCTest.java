@@ -48,8 +48,9 @@ class CourseControllerMockMVCTest {
 	}
 
 	@Test
-	public void shouldGetStatusOfOKWhenNavigatingToSingleCoursePage() throws Exception {
-		this.mockMvc.perform(get("/show-single-course")).andExpect(status().isOk())
+	public void shouldGetStatusOfOKWhenNavigatingToCourseOnePage() throws Exception {
+		when(courseRepo.findOneCourse(1L)).thenReturn(courseOne);
+		this.mockMvc.perform(get("/show-single-course?id=1")).andExpect(status().isOk())
 		.andExpect(view().name("course-template"));
 	}
 	
@@ -58,6 +59,5 @@ class CourseControllerMockMVCTest {
 		when(courseRepo.findAllCourses()).thenReturn(Arrays.asList(courseOne, courseTwo)); //use a when-then return to mock database -- common for mocking information
 				this.mockMvc.perform(get("/show-courses"))
 				.andExpect(model().attribute("coursesModel", hasSize(2)));
-				//failed --> build in controller
 	}
 }

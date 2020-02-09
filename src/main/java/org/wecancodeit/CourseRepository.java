@@ -4,14 +4,22 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class CourseRepository {
 
 	private Map<Long, Course> courseList = new HashMap<>();
+	private Course courseOne = new Course(1L, "course one", "description");
+	private Course courseTwo = new Course(2L, "course two", "description");
 
-	private Course courseOne = new Course(1L, "course name", "description");
-
+	//real database
+	public CourseRepository() {
+		courseList.put(courseOne.getId(), courseOne);
+		courseList.put(courseTwo.getId(), courseTwo);
+	}
+	
 	// uses varargs (variable argument)for testing purposes to take on the necessary courses
-
 	public CourseRepository(Course... courses) {
 		// was this.courseOne = courseOne;
 		for (Course course : courses) {
