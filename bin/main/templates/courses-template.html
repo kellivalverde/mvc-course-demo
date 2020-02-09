@@ -13,7 +13,7 @@
 
     <main>
         <ul>
-            <li th:each="course: ${coursesModel}"><a th:href="@{/show-courses/{id}(id=${course.id})}"
+            <li th:each="course: ${coursesModel}"><a th:href="|/show-courses/${course.id}|"
                     th:text="${course.name}"></a></li>
         </ul>
     </main>
