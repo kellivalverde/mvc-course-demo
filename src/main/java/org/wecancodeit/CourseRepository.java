@@ -21,15 +21,12 @@ public class CourseRepository {
 	
 	// uses varargs (variable argument)for testing purposes to take on the necessary courses
 	public CourseRepository(Course... courses) {
-		// was this.courseOne = courseOne;
 		for (Course course : courses) {
-			// create a Map for collecting courses
 			courseList.put(course.getId(), course); // grabs each singular class and adds it to the database
 		}
 	}
 
 	public Course findOneCourse(long id) {
-		 //return courseOne;  needs to be more flexible
 		return courseList.get(id);
 	}
 
