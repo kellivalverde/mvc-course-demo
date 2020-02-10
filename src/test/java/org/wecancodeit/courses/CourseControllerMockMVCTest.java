@@ -80,14 +80,4 @@ class CourseControllerMockMVCTest {
 		.andExpect(status().isNotFound());
 	}
 
-
-
-
-
-
-
-
-
-
-
 }
